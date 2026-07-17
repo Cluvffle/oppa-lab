@@ -1,0 +1,48 @@
+# =============================================================================
+# 챠밍 (Charming) Docker Compose — 로컬 개발 기본 설정
+# =============================================================================
+#
+# 사용법:
+#   docker compose up --build       # 개발 서버 (backend + frontend)
+#   docker compose down             # 중지
+#
+# 백엔드만: docker compose up backend
+# 프론트만: docker compose up frontend
+# =============================================================================
+
+services:
+  # ===== Backend (FastAPI) =====
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+    image: charming-backend:dev
+    container_name: charming-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend:/app
+      - ./storage:/app/storage
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  # ===== Frontend (Next.js) =====
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend/Dockerfile
+    image: charming-frontend:dev
+    container_name: charming-frontend
+    ports:
+      - "3001:3001"
+    depends_on:
+      - backend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000

@@ -1,0 +1,15 @@
+[project]
+name = "charming-backend"
+version = "0.1.0"
+description = "챠밍 (Charming) API — 남성 유저가 여자와 대화하는 근육을 키우는 놀이터"
+requires-python = ">=3.11"
+readme = "../README.md"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
