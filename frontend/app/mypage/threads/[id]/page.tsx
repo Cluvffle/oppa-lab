@@ -84,7 +84,7 @@ export default async function ThreadDetailPage({ params, searchParams }: PagePro
                   {summary.creator.occupation}
                 </p>
                 <p className="thread-detail__partner-bio">
-                  "{summary.creator.bio}"
+                  &ldquo;{summary.creator.bio}&rdquo;
                 </p>
                 <div className="thread-detail__partner-counts">
                   <span>총 회차 {summary.totalMeetCount}번</span>

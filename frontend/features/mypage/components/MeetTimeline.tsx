@@ -70,7 +70,7 @@ export function MeetTimeline({ meets, bookingsByMeet, viewer }: MeetTimelineProp
                   <span className="meet-timeline__feedback-label">
                     여사친 피드백
                   </span>
-                  <p>"{m.feedbackSummary}"</p>
+                  <p>&ldquo;{m.feedbackSummary}&rdquo;</p>
                 </div>
               )}
 
@@ -78,7 +78,7 @@ export function MeetTimeline({ meets, bookingsByMeet, viewer }: MeetTimelineProp
                 <div className="meet-timeline__feedback-action">
                   {m.feedbackSummary ? (
                     <p className="meet-timeline__feedback-mine">
-                      내가 남긴 피드백: "{m.feedbackSummary}"
+                      내가 남긴 피드백: &ldquo;{m.feedbackSummary}&rdquo;
                     </p>
                   ) : (
                     <button

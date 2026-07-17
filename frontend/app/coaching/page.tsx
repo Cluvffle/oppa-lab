@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Header } from "@/shared/layout/Header";
 import { Footer } from "@/shared/layout/Footer";
 import { PageStub } from "@/features/landing/components/PageStub";
@@ -5,7 +6,9 @@ import { PageStub } from "@/features/landing/components/PageStub";
 export default function CoachingPage() {
   return (
     <>
-      <Header />
+      <Suspense fallback={<div className="header" />}>
+        <Header />
+      </Suspense>
       <PageStub
         emoji="✨"
         title="매력 트레이닝"

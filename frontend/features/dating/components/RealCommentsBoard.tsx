@@ -105,7 +105,7 @@ export function RealCommentsBoard() {
                 <span className="comment-tile__time">{c.createdAtRelative}</span>
               </div>
 
-              <p className="comment-tile__text">"{c.text}"</p>
+              <p className="comment-tile__text">&ldquo;{c.text}&rdquo;</p>
 
               <div className="comment-tile__foot">
                 <div className="comment-tile__author">

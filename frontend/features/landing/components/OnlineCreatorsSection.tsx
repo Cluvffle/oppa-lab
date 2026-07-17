@@ -43,7 +43,7 @@ export function OnlineCreatorsSection() {
               </div>
               {/* 실적 stats는 "인기 투표" 프레임 방지 위해 카드에서 숨김.
                   데이터는 mock 유지 (상세 페이지 등에서 재사용 가능). */}
-              <p className="creator-mini__bio">"{c.bio}"</p>
+              <p className="creator-mini__bio">&ldquo;{c.bio}&rdquo;</p>
               <div className="creator-mini__tags">
                 {c.personalityTags.map((t) => (
                   <span key={t} className="creator-mini__tag">

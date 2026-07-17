@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Header } from "@/shared/layout/Header";
 import { Footer } from "@/shared/layout/Footer";
 import { HeroSection } from "@/features/landing/components/HeroSection";
@@ -11,7 +12,9 @@ import { CommunitySection } from "@/features/landing/components/CommunitySection
 export default function HomePage() {
   return (
     <>
-      <Header />
+      <Suspense fallback={<div className="header" />}>
+        <Header />
+      </Suspense>
       <main>
         <HeroSection />
         <OnlineCreatorsSection />

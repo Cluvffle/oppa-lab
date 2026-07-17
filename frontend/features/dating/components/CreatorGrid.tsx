@@ -45,7 +45,7 @@ function CreatorCard({ c }: { c: CreatorMock }) {
       {/* 실적 stats는 "인기 투표" 프레임 방지 위해 카드에서 숨김.
           데이터는 mock에 유지 (상세 페이지에서 재사용 가능). */}
 
-      <p className="creator-card-tile__bio">"{c.bio}"</p>
+      <p className="creator-card-tile__bio">&ldquo;{c.bio}&rdquo;</p>
       <div className="creator-card-tile__tags">
         {c.personalityTags.map((t) => (
           <span key={t} className="creator-card-tile__tag">

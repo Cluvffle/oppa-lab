@@ -66,7 +66,7 @@ export function ThreadCard({ s, viewer }: ThreadCardProps) {
       {s.latestMeet?.feedbackSummary && viewer === "user" && (
         <p className="thread-card__feedback">
           <span className="thread-card__feedback-label">최근 피드백</span>
-          "{s.latestMeet.feedbackSummary}"
+          &ldquo;{s.latestMeet.feedbackSummary}&rdquo;
         </p>
       )}
       {viewer === "creator" && s.completedMeets.length > 0 && (
