@@ -1,11 +1,11 @@
 ---
 name: design-system
-description: 챠밍 비주얼 시스템 — 컬러 팔레트 · 블랙/화이트 토글 · 타이포 · 레이아웃 · 컴포넌트 규칙. UI 작성 시 항상 참조.
+description: 사이다 비주얼 시스템 — 컬러 팔레트 · 블랙/화이트 토글 · 타이포 · 레이아웃 · 컴포넌트 규칙. UI 작성 시 항상 참조.
 ---
 
 # Design System
 
-브랜드 방향은 [[brand-charming]], 서비스 무드 레퍼런스는 치지직(chzzk.naver.com).
+브랜드 방향은 [[brand-cider]], 서비스 무드 레퍼런스는 치지직(chzzk.naver.com).
 
 ## 무드 요약
 
@@ -37,7 +37,7 @@ CSS 변수 기반. `data-theme="dark"` / `data-theme="light"` 를 `<html>` 에 �
   --text-muted: #6E6E6E;
   --text-inverse: #0F0F0F;    /* 액센트 위 텍스트 */
   
-  /* Accent — 챠밍 시그니처 라임 */
+  /* Accent — 사이다 시그니처 라임 */
   --accent: #00FFA3;
   --accent-hover: #00E693;
   --accent-muted: rgba(0,255,163,0.12);
@@ -184,7 +184,7 @@ CSS 변수 기반. `data-theme="dark"` / `data-theme="light"` 를 `<html>` 에 �
 
 **Primary 버튼**: 액센트 배경 + **--text-inverse 텍스트** (라임 위엔 검정이 가독성 최고).
 
-### 친구 카드 (챠밍의 시그니처 컴포넌트)
+### 친구 카드 (사이다의 시그니처 컴포넌트)
 
 ```
 .creator-card
@@ -238,7 +238,7 @@ CSS 변수 기반. `data-theme="dark"` / `data-theme="light"` 를 `<html>` 에 �
 .badge-stage-challenger    → --stage-challenger
 .badge-stage-grad-plus     → --stage-grad-plus
 .badge-graduate            → 골드 그라디언트 (특별)
-.badge-oppa-mentor         → "챠밍에서 시작한 오빠" (Grad+ 커뮤니티 답변)
+.badge-oppa-mentor         → "사이다에서 시작한 오빠" (Grad+ 커뮤니티 답변)
 ```
 
 ### 통화 페이지 (WebRTC UI)
@@ -299,7 +299,7 @@ transition: { duration: 0.3, ease: 'easeOut' }
 
 ## 아바타/캐릭터 표시 규칙
 
-- **여성 친구**: 항상 캐릭터 이미지 (PixelLab 생성)
+- **사이다 친구**: 항상 캐릭터 이미지 (PixelLab 생성)
 - **남성 유저**: 
   - 프로필 사진 공개 + 로그인 상태: 실사 사진
   - 비공개 or 커뮤니티: 이니셜 아바타 (자동 생성, 스테이지 컬러 배경)
@@ -308,7 +308,7 @@ transition: { duration: 0.3, ease: 'easeOut' }
 
 ```
 ┌──────────────────────────────────────────────┐
-│  [챠밍]   [피드][할까말까][{{NUNA}}들][커뮤니티]  🌗👤 │
+│  [사이다]   [피드][할까말까][{{NUNA}}들][커뮤니티]  🌗👤 │
 ├──────────────────────────────────────────────┤
 │                                                │
 │   🟢 지금 온라인                                 │
@@ -322,7 +322,7 @@ transition: { duration: 0.3, ease: 'easeOut' }
 │   📸 인기 어필 피드                             │
 │   그리드 인스타 스타일                          │
 ├──────────────────────────────────────────────┤
-│   💬 오늘의 팩폭                         │
+│   💬 오늘의 피드백                         │
 │   자동 롤링 인용문                              │
 ├──────────────────────────────────────────────┤
 │   ⭐ 이번 주 매력 남자                          │
@@ -339,12 +339,12 @@ transition: { duration: 0.3, ease: 'easeOut' }
 - ❌ 라이트 모드에서 액센트 배경 위 흰 텍스트 (대비 부족)
 - ❌ 통화 페이지 화이트 배경
 - ❌ 이모지 남발
-- ❌ 여성 친구 실사 사진 노출
+- ❌ 사이다 친구 실사 사진 노출
 - ❌ 결제 CTA에 붉은 색 (긴급/위험 뉘앙스)
 
 ## 관련 스킬
 
-- [[brand-charming]] — 브랜드 무드
+- [[brand-cider]] — 브랜드 무드
 - [[panel-persona]] — 캐릭터 이미지 스타일
 - [[lifecycle]] — 스테이지별 위젯
 - [[concept]] — 페이지별 레이아웃

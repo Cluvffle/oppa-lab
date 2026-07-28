@@ -10,7 +10,7 @@ import { cn } from "@/shared/lib/cn";
 interface Props {
   threadId: string;
   userId: string;
-  /** 상대(반대편) 표시용 라벨. 오빠 화면이면 여성 친구 닉네임, 반대는 오빠 별칭. */
+  /** 상대(반대편) 표시용 라벨. 오빠 화면이면 사이다 친구 닉네임, 반대는 오빠 별칭. */
   peerLabel: string;
   /** 나 자신의 라벨. */
   selfLabel: string;

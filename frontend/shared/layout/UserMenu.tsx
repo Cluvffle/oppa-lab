@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { LogOut, Repeat, User as UserIcon } from "lucide-react";
+import { LogOut, Repeat } from "lucide-react";
 import { cn } from "@/shared/lib/cn";
 import {
   CREATOR_TABS,
@@ -13,7 +13,6 @@ import {
 } from "@/features/mypage/lib/tabs";
 import { TAB_ICON } from "@/features/mypage/lib/tabIcons";
 import { useAuth } from "@/features/auth/useAuth";
-import { LevelGlassBadge } from "@/shared/ui/MypageIcons";
 
 /**
  * 로그인 유저 헤더 아이콘 → 마이페이지 드롭다운.
@@ -54,6 +53,10 @@ export function UserMenu() {
   const tabs: TabDef[] = role === "creator" ? CREATOR_TABS : USER_TABS;
   // ?role=creator 쿼리 유지 (링크 공유용)
   const roleQuery = sp?.get("role");
+  // 오빠 뷰(user) = 고구마 마스코트, 여성 뷰(creator) = 사이다 마스코트
+  const avatarSrc =
+    role === "creator" ? "/avatars/cider-mascot.png" : "/avatars/sweet-potato.png";
+  const avatarAlt = role === "creator" ? "사이다 마스코트" : "고구마 오빠";
 
   return (
     <div ref={containerRef} className="user-menu">
@@ -65,19 +68,27 @@ export function UserMenu() {
         aria-expanded={open}
         aria-label="마이페이지 메뉴"
       >
-        <UserIcon size={22} className="user-menu__trigger-icon" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={avatarSrc}
+          alt={avatarAlt}
+          className="user-menu__trigger-avatar"
+        />
       </button>
 
       {open && (
         <div className="user-menu__panel" role="menu">
           <div className="user-menu__header">
-            <div className="user-menu__avatar">
-              <UserIcon size={26} />
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={avatarSrc}
+              alt={avatarAlt}
+              className="user-menu__avatar"
+            />
+
             <div className="user-menu__ident">
               <div className="user-menu__nickname-row">
                 <span className="user-menu__nickname">{user.nickname}</span>
-                <LevelGlassBadge level={user.level} />
               </div>
             </div>
           </div>
@@ -118,7 +129,7 @@ export function UserMenu() {
                 onClick={switchRole}
               >
                 <Repeat size={14} />
-                {role === "creator" ? "챠밍 오빠 뷰로" : "여성 친구 뷰로"}
+                {role === "creator" ? "고구마 오빠 뷰로" : "사이다 친구 뷰로"}
               </button>
             )}
             <button

@@ -1,5 +1,5 @@
 """
-챠밍 로깅 설정 — key=value 확장이 가능한 stdlib logger 얇은 래퍼.
+사이다 로깅 설정 — key=value 확장이 가능한 stdlib logger 얇은 래퍼.
 
 structlog 을 실제로 안 붙였기 때문에 kwargs 를 그대로 넘기면 TypeError 가 난다.
 사용부는 `logger.info("event_name", key=value, ...)` 스타일을 이미 쓰고 있어서,

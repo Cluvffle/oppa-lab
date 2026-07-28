@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { realCommentsMock } from "@/shared/lib/mock";
 import { CommentIcon } from "@/shared/ui/SectionIcons";
 
@@ -5,18 +6,21 @@ export function RealCommentsSection() {
   const track = [...realCommentsMock, ...realCommentsMock];
 
   return (
-    <section className="section" style={{ background: "var(--bg-secondary)" }}>
+    <section className="section">
       <div className="container">
         <div className="section-header">
           <div>
             <h2 className="section-title">
               <CommentIcon size={28} />
-              오늘의 팩폭
+              오늘의 사이다 피드백
             </h2>
             <p className="section-subtitle">
               여자의 시선으로 남긴 현실 조언
             </p>
           </div>
+          <Link href="/dating/comments" className="section-link">
+            전체 보기 →
+          </Link>
         </div>
       </div>
 

@@ -8,7 +8,7 @@
 
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "charming:auth:v1";
+const STORAGE_KEY = "cider:auth:v1";
 
 export interface MockUser {
   role: "user" | "creator";
@@ -19,7 +19,7 @@ export interface MockUser {
 
 const DEFAULT_USER: MockUser = {
   role: "user",
-  nickname: "익명 오빠",
+  nickname: "고구마 오빠",
   level: 2,
   stage: "growing",
 };
@@ -47,7 +47,7 @@ function writeStored(u: MockUser | null) {
   if (!u) window.localStorage.removeItem(STORAGE_KEY);
   else window.localStorage.setItem(STORAGE_KEY, JSON.stringify(u));
   // 같은 탭에서도 다른 컴포넌트가 반응하도록 커스텀 이벤트
-  window.dispatchEvent(new Event("charming:auth-change"));
+  window.dispatchEvent(new Event("cider:auth-change"));
 }
 
 export function useAuth() {
@@ -58,10 +58,10 @@ export function useAuth() {
     setUser(readStored());
     setReady(true);
     const onChange = () => setUser(readStored());
-    window.addEventListener("charming:auth-change", onChange);
+    window.addEventListener("cider:auth-change", onChange);
     window.addEventListener("storage", onChange);
     return () => {
-      window.removeEventListener("charming:auth-change", onChange);
+      window.removeEventListener("cider:auth-change", onChange);
       window.removeEventListener("storage", onChange);
     };
   }, []);

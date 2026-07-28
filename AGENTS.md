@@ -1,4 +1,4 @@
-# AGENTS — 챠밍 문서 맵
+# AGENTS — 사이다 문서 맵
 
 이 저장소의 문서/스킬/코드 전체 지도. Claude Code · GPT · 사람 모두를 위한 진입점.
 
@@ -17,7 +17,7 @@
 ### 정체성 (Identity)
 - [`mission`](.claude/skills/mission/SKILL.md) — 궁극 목표 · 라이프사이클 철학 · 8가지 절대 룰
 - [`concept`](.claude/skills/concept/SKILL.md) — 서비스 전체 구조 (놀이터 · 4대 할까말까 · 매칭 · 커뮤니티 · 대시보드)
-- [`brand-charming`](.claude/skills/brand-charming/SKILL.md) — 브랜드명 · 톤 오브 보이스 · 카피 규칙
+- [`brand-cider`](.claude/skills/brand-cider/SKILL.md) — 브랜드명 · 톤 오브 보이스 · 카피 규칙
 - [`lifecycle`](.claude/skills/lifecycle/SKILL.md) — 4단계 (입문/성장/도전/Grad+) · 진급 규칙
 
 ### 시스템 (System)
@@ -25,9 +25,8 @@
 - [`design-system`](.claude/skills/design-system/SKILL.md) — CSS 변수 · 컴포넌트 · 블랙/화이트 토글
 
 ### 참여 채널 (Engagement)
-- [`panel-persona`](.claude/skills/panel-persona/SKILL.md) — 여성 친구 3유형 (연습 파트너 · 연애 코치 · 관계 상담사)
+- [`panel-persona`](.claude/skills/panel-persona/SKILL.md) — 사이다 친구 3유형 (연습 파트너 · 연애 코치 · 관계 상담사)
 - [`emergency-rooms`](.claude/skills/emergency-rooms/SKILL.md) — 4대 할까말까 (카톡 · 스타일 · 프로필 · 관계) + 레드플래그 필터
-- [`appeal-feed`](.claude/skills/appeal-feed/SKILL.md) — 어필 피드 · 성장 페어 · 얼굴 노출 옵션
 - [`creator-economy`](.claude/skills/creator-economy/SKILL.md) — 포인트 · 정산 · 세무 이슈
 
 ### 성장 · 커뮤니티 (Growth)
@@ -68,14 +67,13 @@ app/                       ← Next.js App Router
   (auth)/                  ← 로그인 · 가입 (남/여 트랙 분기)
   (main)/                  ← 로그인 후
     emergency/             ← 4대 할까말까
-    feed/                  ← 어필 피드
     panels/                ← 친구 카탈로그
     call/[id]/             ← WebRTC 통화 페이지
     reports/               ← 리포트
     community/             ← 게시판
     dashboard/             ← 마이페이지 (성장 대시보드)
   api/                     ← BFF proxy → FastAPI
-  globals.css              ← 챠밍 CSS 변수 시스템
+  globals.css              ← 사이다 CSS 변수 시스템
   layout.tsx
 features/                  ← 도메인별 (auth · panels · call · reports · emergency · feed · community · dashboard · billing · creator)
   {domain}/components/
@@ -119,13 +117,12 @@ docs/operations/           ← 배포 · 모니터링 · 인시던트
 | 한글 | 코드 | 주의 |
 |---|---|---|
 | 남성 유저 | `user` | 회원/고객 X |
-| 여성 친구 | `creator` | 여자/알바/상담원 X |
+| 사이다 친구 | `creator` | 여자/알바/상담원 X |
 | 친구 유형 3종 | `practice_partner` · `love_coach` · `relationship_advisor` | |
 | 라이프사이클 4단계 | `rookie` · `growing` · `challenger` · `grad_plus` | |
 | 통화 세션 | `call_session` | |
 | 리포트 | `report` (통화 후) / `abuse_report` (신고) | 이름 충돌 유의 |
 | 할까말까 | `emergency_room` (`kakao` · `style` · `profile` · `relationship`) | |
-| 어필 피드 | `appeal_feed` | |
 | 여성 네트워크 | `female_network` | |
 | 친구 포인트 | `creator_points` | 적립금 X |
 

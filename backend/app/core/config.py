@@ -1,5 +1,5 @@
 """
-챠밍 백엔드 설정 (환경변수 기반)
+사이다 백엔드 설정 (환경변수 기반)
 """
 
 from pathlib import Path
@@ -20,7 +20,7 @@ class AppSettings(BaseSettings):
     )
 
     # ===== Application =====
-    APP_NAME: str = "Charming"
+    APP_NAME: str = "Cider"
     APP_VERSION: str = "0.1.0"
     APP_HOST: str = "0.0.0.0"
     APP_PORT: int = 8000

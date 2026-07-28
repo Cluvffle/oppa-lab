@@ -7,7 +7,6 @@ import { Avatar } from "@/shared/ui/Avatar";
 import { MultiSelectDropdown } from "@/shared/ui/MultiSelectDropdown";
 import {
   creatorsMock,
-  isRookieCreator,
   formatRelationship,
   personalityLabel,
   positionLabel,
@@ -15,18 +14,17 @@ import {
   type PersonalityTrait,
   type Position,
 } from "@/shared/lib/mock";
+import { StartChatButton } from "./StartChatButton";
 
 function CreatorCard({ c }: { c: CreatorMock }) {
-  const isRookie = isRookieCreator(c);
   return (
     <Link href={`/dating/${c.id}`} className="creator-card-tile">
       <div className="creator-card-tile__head">
-        <Avatar src={c.avatar} size="lg" ring={c.isOnline} alt={c.nickname} />
+        <Avatar src={c.avatar} size="md" ring={c.isOnline} alt={c.nickname} />
         <div className="creator-card-tile__head-info">
           <div className="creator-card-tile__nickname-row">
             <span className="creator-card-tile__nickname">
               {c.nickname}
-              {isRookie && <span className="new-badge">NEW</span>}
             </span>
             {c.isOnline && <Badge variant="online">ON</Badge>}
           </div>
@@ -42,16 +40,11 @@ function CreatorCard({ c }: { c: CreatorMock }) {
         </div>
       </div>
 
-      {/* 실적 stats는 "인기 투표" 프레임 방지 위해 카드에서 숨김.
-          데이터는 mock에 유지 (상세 페이지에서 재사용 가능). */}
+      {/* 실적 stats · #해시태그는 카드에서 숨김. 상세 페이지에서 재사용. */}
 
-      <p className="creator-card-tile__bio">&ldquo;{c.bio}&rdquo;</p>
-      <div className="creator-card-tile__tags">
-        {c.personalityTags.map((t) => (
-          <span key={t} className="creator-card-tile__tag">
-            #{t}
-          </span>
-        ))}
+      <div className="creator-card-tile__foot">
+        <p className="creator-card-tile__bio">&ldquo;{c.bio}&rdquo;</p>
+        <StartChatButton creatorId={c.id} creatorNickname={c.nickname} />
       </div>
     </Link>
   );
@@ -66,7 +59,7 @@ const positionOptions = (
 ).map(([value, label]) => ({ value, label }));
 
 export function CreatorGrid() {
-  const [onlineOnly, setOnlineOnly] = useState(false);
+  const [onlineOnly, setOnlineOnly] = useState(true);
   const [traits, setTraits] = useState<PersonalityTrait[]>([]);
   const [positions, setPositions] = useState<Position[]>([]);
 

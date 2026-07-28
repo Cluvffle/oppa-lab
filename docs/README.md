@@ -1,4 +1,4 @@
-# 챠밍 문서 (docs/)
+# 사이다 문서 (docs/)
 
 프로젝트 전 영역 문서 4-bucket. 개발 참조 스킬은 [`.claude/skills/`](../.claude/skills/) 참조.
 

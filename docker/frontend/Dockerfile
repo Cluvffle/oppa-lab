@@ -1,4 +1,4 @@
-# 챠밍 프론트엔드 Dockerfile (Next.js 15 standalone)
+# 사이다 프론트엔드 Dockerfile (Next.js 15 standalone)
 
 FROM node:20-alpine AS deps
 WORKDIR /app

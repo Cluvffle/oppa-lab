@@ -1,5 +1,5 @@
 """
-챠밍 (Charming) FastAPI 진입점
+사이다 (Cider) FastAPI 진입점
 개발 참조: .claude/skills/ 아래 모든 SKILL.md
 """
 
@@ -62,7 +62,7 @@ def create_app() -> FastAPI:
     @app.get("/")
     async def root():
         return {
-            "message": "챠밍 API 서버",
+            "message": "사이다 API 서버",
             "docs": "/docs",
             "concept": ".claude/skills/concept/SKILL.md",
         }

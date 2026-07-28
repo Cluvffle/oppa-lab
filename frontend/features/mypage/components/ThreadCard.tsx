@@ -8,13 +8,13 @@ import { TierBadge } from "./TierBadge";
 
 interface ThreadCardProps {
   s: ThreadSummary;
-  /** "user" = 남성 유저 관점, "creator" = 여사친 관점 */
+  /** "user" = 남성 유저 관점, "creator" = 사이다 친구 관점 */
   viewer: "user" | "creator";
 }
 
 /**
  * 남/여 공용 스레드 카드.
- * viewer=user: 여사친 정보 상단 (누구랑 소개팅 중인지)
+ * viewer=user: 사이다 친구 정보 상단 (누구랑 소개팅 중인지)
  * viewer=creator: 남성 익명 정보 상단 (누구를 봐주고 있는지)
  */
 export function ThreadCard({ s, viewer }: ThreadCardProps) {
@@ -45,10 +45,16 @@ export function ThreadCard({ s, viewer }: ThreadCardProps) {
           </>
         ) : (
           <div className="thread-card__anon-head">
-            <div className="thread-card__anon-avatar">🙂</div>
+            {/* 고구마 오빠 = 고구마 마스코트 */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/avatars/sweet-potato.png"
+              alt="고구마 오빠"
+              className="thread-card__anon-avatar"
+            />
             <div className="thread-card__head-info">
               <div className="thread-card__nickname-row">
-                <span className="thread-card__nickname">익명 오빠</span>
+                <span className="thread-card__nickname">고구마 오빠</span>
                 <Badge variant="default">성장기</Badge>
               </div>
               <div className="thread-card__meta">
@@ -82,9 +88,8 @@ export function ThreadCard({ s, viewer }: ThreadCardProps) {
 /** 회차 카운트 — 티어별 총 횟수를 뱃지로. 예정/조율중은 별도 pill. */
 function MeetStepper({ s }: { s: ThreadSummary }) {
   const voice = s.thread.voiceCount;
-  const video = s.thread.videoCount;
   const offline = s.thread.offlineCount;
-  const total = voice + video + offline;
+  const total = voice + offline;
 
   return (
     <div className="thread-card__stepper">
@@ -93,7 +98,6 @@ function MeetStepper({ s }: { s: ThreadSummary }) {
       ) : (
         <>
           {voice > 0 && <TierBadge tier="voice" count={voice} />}
-          {video > 0 && <TierBadge tier="video" count={video} />}
           {offline > 0 && <TierBadge tier="offline" count={offline} />}
         </>
       )}

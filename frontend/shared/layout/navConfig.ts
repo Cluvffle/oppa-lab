@@ -1,6 +1,6 @@
 /**
  * 헤더 대분류(1단) + 서브바(2단) 구성.
- * 스킬 참조: [[concept]] — 서비스 지도, [[emergency-rooms]] — 오답노트 4방
+ * 스킬 참조: [[concept]] — 서비스 지도, [[emergency-rooms]] — 커뮤니티 4방
  *
  * 규칙:
  * - 대분류: 헤더 상단 항상 노출
@@ -24,15 +24,29 @@ export interface NavTab {
 }
 
 export const navTabs: NavTab[] = [
-  // 홈 탭은 제거 — 헤더의 챠밍 로고 클릭이 홈 진입점.
+  // 홈 탭은 제거 — 헤더의 사이다 로고 클릭이 홈 진입점.
   {
     key: "dating",
-    label: "가짜 소개팅",
+    label: "소개팅",
     href: "/dating",
     matcher: (p) => p.startsWith("/dating") || p.startsWith("/panels") || p.startsWith("/call"),
     sub: [
       { href: "/dating", label: "실시간", live: true },
-      { href: "/dating/comments", label: "팩폭 후기", live: true },
+      { href: "/dating/comments", label: "피드백", live: true },
+    ],
+  },
+  {
+    key: "notes",
+    label: "커뮤니티",
+    href: "/emergency",
+    matcher: (p) =>
+      p.startsWith("/emergency") || p.startsWith("/community"),
+    sub: [
+      { href: "/community", label: "전체" },
+      { href: "/emergency/kakao", label: "연락", live: true },
+      { href: "/emergency/style", label: "스타일" },
+      { href: "/emergency/profile", label: "프사" },
+      { href: "/community/free", label: "자유", live: true },
     ],
   },
   {
@@ -40,37 +54,16 @@ export const navTabs: NavTab[] = [
     label: "매력 트레이닝",
     href: "/coaching",
     matcher: (p) => p.startsWith("/coaching"),
+    // 대면 활동 5개 + 후기 = 7탭. 서브바는 '무엇을' 만 담고,
+    // '누가 올렸는가' (사이다친구/고구마오빠) 는 리스트 상단 pill 필터 (?by=creator|user).
     sub: [
-      { href: "/coaching/talk", label: "대화법" },
-      { href: "/coaching/style", label: "스타일" },
-      { href: "/coaching/kakao", label: "카톡" },
-      { href: "/coaching/reviews", label: "후기" },
-    ],
-  },
-  {
-    key: "notes",
-    label: "오답노트",
-    href: "/emergency",
-    matcher: (p) => p.startsWith("/emergency"),
-    sub: [
-      { href: "/emergency/kakao", label: "카톡", live: true },
-      { href: "/emergency/style", label: "스타일" },
-      { href: "/emergency/profile", label: "프사" },
-      { href: "/emergency/relationship", label: "관계", live: true },
-    ],
-  },
-  {
-    key: "lounge",
-    label: "라운지",
-    href: "/community",
-    matcher: (p) => p.startsWith("/community") || p.startsWith("/feed"),
-    sub: [
-      { href: "/community/free", label: "자유", live: true },
-      { href: "/feed", label: "어필 피드" },
-      { href: "/community/growth-log", label: "성장일지" },
-      { href: "/community/model-answers", label: "모범답안" },
-      { href: "/community/real-interview", label: "리얼 인터뷰" },
-      { href: "/community/grad", label: "졸업생" },
+      { href: "/coaching", label: "전체" },
+      { href: "/coaching?activity=wardrobe", label: "옷장" },
+      { href: "/coaching?activity=photo", label: "인생샷" },
+      { href: "/coaching?activity=cafe", label: "카페" },
+      { href: "/coaching?activity=food", label: "맛집" },
+      { href: "/coaching?activity=activity", label: "게임" },
+      { href: "/coaching?view=reviews", label: "후기" },
     ],
   },
 ];

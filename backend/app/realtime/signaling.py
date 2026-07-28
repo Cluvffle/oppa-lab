@@ -1,7 +1,7 @@
 """
 WebRTC 시그널링 (Socket.IO)
 
-한 스레드(threadId) = 한 방(room). 최대 2인(오빠/여성 친구) 통화만 상정.
+한 스레드(threadId) = 한 방(room). 최대 2인(오빠/사이다 친구) 통화만 상정.
 클라이언트 이벤트:
   - join            {threadId, userId}
   - webrtc:offer    {threadId, sdp}

@@ -11,7 +11,7 @@ interface MeetTimelineProps {
 
 /**
  * 회차 타임라인 — 오래된 회차 → 최신 → 예정된 회차 순서.
- * user 뷰: 여사친 피드백을 성장 자료로 표시
+ * user 뷰: 사이다 친구 피드백을 성장 자료로 표시
  * creator 뷰: 피드백 미작성이면 CTA 노출
  */
 export function MeetTimeline({ meets, bookingsByMeet, viewer }: MeetTimelineProps) {
@@ -68,7 +68,7 @@ export function MeetTimeline({ meets, bookingsByMeet, viewer }: MeetTimelineProp
               {isDone && m.feedbackSummary && viewer === "user" && (
                 <div className="meet-timeline__feedback">
                   <span className="meet-timeline__feedback-label">
-                    여사친 피드백
+                    사이다 친구 피드백
                   </span>
                   <p>&ldquo;{m.feedbackSummary}&rdquo;</p>
                 </div>

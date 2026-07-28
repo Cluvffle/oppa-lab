@@ -1,4 +1,4 @@
-# 챠밍 백엔드 Dockerfile
+# 사이다 백엔드 Dockerfile
 FROM python:3.11-slim
 
 WORKDIR /app

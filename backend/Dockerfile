@@ -1,4 +1,4 @@
-# 챠밍 백엔드 Dockerfile (Fly.io 배포용)
+# 사이다 백엔드 Dockerfile (Fly.io 배포용)
 # 빌드 컨텍스트 = backend/  (fly launch/deploy 를 backend/ 안에서 실행)
 FROM python:3.11-slim
 

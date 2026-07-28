@@ -1,4 +1,4 @@
-# Claude — 챠밍 (Charming)
+# Claude — 사이다 (Cider)
 
 이 저장소에서 작업하는 Claude Code(claude.ai/code)를 위한 진입 문서.  
 **모든 컨셉/설계 결정의 최상위 참조는 [`.claude/skills/`](.claude/skills/) 아래 스킬 문서.**
@@ -7,14 +7,14 @@
 
 ## 프로젝트 개요
 
-**챠밍 (Charming)** — 남성 유저가 여성 친구와 대화하며 여자와 편안하게 대화하는 근육을 키우고, 실제 연애·결혼, 그 이후의 관계까지 잘 해나갈 수 있도록 돕는 **평생 놀이터**.
+**사이다 (Cider)** — 남성 유저가 사이다 친구와 대화하며 여자와 편안하게 대화하는 근육을 키우고, 실제 연애·결혼, 그 이후의 관계까지 잘 해나갈 수 있도록 돕는 **평생 놀이터**.
 
 - 메인은 **결제 랜딩이 아니라 놀이터** (치지직 스타일)
-- 3대 무료 할까말까 (카톡/스타일/프로필/관계) + 어필 피드 + 여성 친구 매칭
+- 3대 무료 할까말까 (연락/스타일/프사) + 사이다 친구 매칭
 - 남성 라이프사이클 4단계 (입문/성장/연애도전/Grad+) 전 구간 대응
 - 여성은 조언자·연습 파트너·관계 상담사 (상품 X)
 
-> 이전 컨셉명(구 브랜드)은 **완전 폐기**됨. 관련 워딩은 사용 금지. 서비스명은 오직 **챠밍(Charming)** 으로만 표기.
+> 이전 컨셉명(구 브랜드)은 **완전 폐기**됨. 관련 워딩은 사용 금지. 서비스명은 오직 **사이다(Cider)** 으로만 표기.
 
 ---
 
@@ -25,12 +25,11 @@
 | 궁극 목표 재확인 | [`.claude/skills/mission/SKILL.md`](.claude/skills/mission/SKILL.md) |
 | 서비스 전체 구조 | [`.claude/skills/concept/SKILL.md`](.claude/skills/concept/SKILL.md) |
 | 도메인 엔티티 / 필드 / 용어 | [`.claude/skills/domain-model/SKILL.md`](.claude/skills/domain-model/SKILL.md) |
-| 브랜드 톤 · 카피 규칙 | [`.claude/skills/brand-charming/SKILL.md`](.claude/skills/brand-charming/SKILL.md) |
+| 브랜드 톤 · 카피 규칙 | [`.claude/skills/brand-cider/SKILL.md`](.claude/skills/brand-cider/SKILL.md) |
 | CSS 변수 · 블랙/화이트 토글 | [`.claude/skills/design-system/SKILL.md`](.claude/skills/design-system/SKILL.md) |
 | 라이프사이클 4단계 | [`.claude/skills/lifecycle/SKILL.md`](.claude/skills/lifecycle/SKILL.md) |
-| 여성 친구 규칙 | [`.claude/skills/panel-persona/SKILL.md`](.claude/skills/panel-persona/SKILL.md) |
+| 사이다 친구 규칙 | [`.claude/skills/panel-persona/SKILL.md`](.claude/skills/panel-persona/SKILL.md) |
 | 4대 할까말까 | [`.claude/skills/emergency-rooms/SKILL.md`](.claude/skills/emergency-rooms/SKILL.md) |
-| 어필 피드 | [`.claude/skills/appeal-feed/SKILL.md`](.claude/skills/appeal-feed/SKILL.md) |
 | 여성 리워드 시스템 | [`.claude/skills/creator-economy/SKILL.md`](.claude/skills/creator-economy/SKILL.md) |
 | 성장 지표 · 배지 · 졸업 | [`.claude/skills/growth-metrics/SKILL.md`](.claude/skills/growth-metrics/SKILL.md) |
 | 커뮤니티 게시판 규칙 | [`.claude/skills/community-rules/SKILL.md`](.claude/skills/community-rules/SKILL.md) |
@@ -123,13 +122,13 @@ docker compose up --build
 ## 절대 룰 (스킬 요약)
 
 1. **여성을 상품화하지 않는다** — 친구는 조언자·연습 파트너·관계 상담사
-2. **조롱·팩폭 톤 금지** — 애정 어린 조언 톤만 (개별 친구 톤 4가지는 [[brand-charming]] 참조)
+2. **조롱·팩폭 톤 금지** — 애정 어린 조언 톤만 (개별 친구 톤 4가지는 [[brand-cider]] 참조)
 3. **유사연애/스토킹 방지** — 지명 통화 월 3~5회 상한, 사적 연락 금지
 4. **남성 유저 완전 익명** — 성장 지표는 본인만 열람
 5. **"졸업"은 이탈이 아니라 관계 진화** — Grad+ 유저를 놓치지 않는다
 6. **놀이터 우선** — 홈은 결제 랜딩이 아니라 매일 놀러 오는 곳
-7. **여성 친구 지속가능성 최우선** — 감정노동 상한 + 실질 보상 + 성취감
-8. **회원 지칭은 챠밍 오리지널 별칭** — "누나", "여사친", "매니저" 지양. 별칭 확정 전까지 `{{OPPA}}` / `{{NUNA}}` 플레이스홀더. 상세는 [[brand-charming]]
+7. **사이다 친구 지속가능성 최우선** — 감정노동 상한 + 실질 보상 + 성취감
+8. **회원 지칭은 사이다 오리지널 별칭** — "누나", "사이다 친구", "매니저" 지양. 별칭 확정 전까지 `{{OPPA}}` / `{{NUNA}}` 플레이스홀더. 상세는 [[brand-cider]]
 
 전문은 [`.claude/skills/mission/SKILL.md`](.claude/skills/mission/SKILL.md) 참조.
 
@@ -141,13 +140,12 @@ docker compose up --build
 |---|---|
 | `mission` | ⭐ 궁극 목표 · 절대 룰 (가장 먼저 읽음) |
 | `concept` | 놀이터 · 4대 할까말까 · 매칭 · 커뮤니티 전체 구조 |
-| `brand-charming` | 브랜드명 · 톤 · 카피 규칙 |
+| `brand-cider` | 브랜드명 · 톤 · 카피 규칙 |
 | `lifecycle` | 4단계 라이프사이클 · 진급 규칙 |
 | `domain-model` | 엔티티 · 필드 · 용어집 |
 | `design-system` | CSS 변수 · 컴포넌트 · 블랙/화이트 토글 |
-| `panel-persona` | 여성 친구 3유형 규칙 |
+| `panel-persona` | 사이다 친구 3유형 규칙 |
 | `emergency-rooms` | 4대 할까말까 상세 |
-| `appeal-feed` | 어필 피드 · 성장 페어 |
 | `creator-economy` | 친구 포인트 · 정산 · 세무 |
 | `growth-metrics` | 5개 지표 · 배지 · 졸업 |
 | `community-rules` | 게시판 · 모더레이션 |

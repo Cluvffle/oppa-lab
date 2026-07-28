@@ -1,8 +1,4 @@
-import {
-  VoiceIcon,
-  VideoIcon,
-  HandshakeIcon,
-} from "@/shared/ui/StatIcons";
+import { VoiceIcon, HandshakeIcon } from "@/shared/ui/StatIcons";
 import { meetTierLabel, type MeetTier } from "@/shared/lib/mock";
 import { cn } from "@/shared/lib/cn";
 
@@ -17,8 +13,8 @@ interface Props {
 }
 
 /**
- * 팩폭 후기(comment-tile__tier) 와 동일한 pill 뱃지 스타일.
- * 티어별 색 (voice=그린 · video=코랄 · offline=골드) + 글라스 아이콘.
+ * 피드백(comment-tile__tier) 와 동일한 pill 뱃지 스타일.
+ * 티어별 색 (voice=그린 · offline=골드) + 글라스 아이콘.
  *
  * 3가지 모드:
  *  기본           → [아이콘] 목소리
@@ -26,8 +22,7 @@ interface Props {
  *  count 지정     → [아이콘] N (툴팁으로 티어명)
  */
 export function TierBadge({ tier, iconOnly = false, count, iconSize = 14 }: Props) {
-  const Icon =
-    tier === "voice" ? VoiceIcon : tier === "video" ? VideoIcon : HandshakeIcon;
+  const Icon = tier === "voice" ? VoiceIcon : HandshakeIcon;
   const label = meetTierLabel[tier];
   const isCount = typeof count === "number";
   return (

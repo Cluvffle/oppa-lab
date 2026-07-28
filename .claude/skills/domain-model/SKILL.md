@@ -1,6 +1,6 @@
 ---
 name: domain-model
-description: 챠밍 도메인 엔티티 · 필드 정의 · 관계도 · 용어집. DB 스키마 · API 설계 · TypeScript 타입 정의 시 단일 진실 공급원.
+description: 사이다 도메인 엔티티 · 필드 정의 · 관계도 · 용어집. DB 스키마 · API 설계 · TypeScript 타입 정의 시 단일 진실 공급원.
 ---
 
 # Domain Model — 엔티티 & 용어집
@@ -43,7 +43,7 @@ DatingMeet (1회차 실제 만남)
              ├─ Booking                     ← 예약 시각/장소
              ├─ CallSession?                ← voice/video일 때 실제 통화 세션
              ├─ AfterRequest? (이 회차를 낳은 신청)
-             └─ Report (여사친 피드백 + AI 분석)
+             └─ Report (사이다 친구 피드백 + AI 분석)
 
 Report ─┬─ CreatorFeedback (템플릿)
         ├─ AIAnalysis (Whisper+GPT)
@@ -62,7 +62,7 @@ AppealPost ─┬─ Category (styling/expression/hair/voice/kakao)
             ├─ FeedbackComments (Creator only)
             └─ GrowthPair (before/after 링크)
 
-CommunityPost ─┬─ Board (자유/졸업생/부부/오답노트/성장일지 등)
+CommunityPost ─┬─ Board (자유/졸업생/부부/커뮤니티/성장일지 등)
                ├─ Author (User or Creator or Admin)
                ├─ Comments
                └─ Reactions
@@ -118,7 +118,7 @@ CommunityPost ─┬─ Board (자유/졸업생/부부/오답노트/성장일지
 
 배지 종류는 [[growth-metrics]] 참조.
 
-## 여성 친구 엔티티
+## 사이다 친구 엔티티
 
 ### `Creator`
 
@@ -151,7 +151,7 @@ CommunityPost ─┬─ Board (자유/졸업생/부부/오답노트/성장일지
 
 ### `CreatorAvailability` (제공 매트릭스 & 슬롯)
 
-여사친이 **어떤 티어까지** 제공할 수 있고, **언제/어디서** 가능한지를 표현. `Creator` 와 1:1.
+사이다 친구이 **어떤 티어까지** 제공할 수 있고, **언제/어디서** 가능한지를 표현. `Creator` 와 1:1.
 
 | 필드 | 타입 | 필수 | 설명 |
 |---|---|---|---|
@@ -200,7 +200,7 @@ CommunityPost ─┬─ Board (자유/졸업생/부부/오답노트/성장일지
 
 **철학**: 소개팅은 1회성이 아니라 **애프터가 이어지는 여정**이다. 한 남성-여성 페어의 모든 회차를 하나의 `DatingThread` 로 묶는다. 스킬 `[[mission]]` 의 "관계 진화" 원칙을 데이터 구조로 표현.
 
-- **거절권 없음**: 오빠가 애프터 신청 시 여사친은 자동 수락 (결제 방어). 대신 여사친은 자신의 `Availability` 로 제공 티어를 통제하고, 조율 채팅에서 시간·장소를 조정하며, 위반 시 `AbuseReport` 트랙으로 차단.
+- **거절권 없음**: 오빠가 애프터 신청 시 사이다 친구은 자동 수락 (결제 방어). 대신 사이다 친구은 자신의 `Availability` 로 제공 티어를 통제하고, 조율 채팅에서 시간·장소를 조정하며, 위반 시 `AbuseReport` 트랙으로 차단.
 - **회차 상한**: 스레드 회차 총량은 `[[mission]]` 의 지명 통화 월 상한과 연동 (기본 월 3회, 정책은 별도 config).
 - **채팅 폐쇄 원칙**: 조율 채팅은 **회차별 1개**로 열리고 예약 확정 시 read-only. 사후 자유 채팅 없음 → 유사연애/집착 방지.
 
@@ -446,7 +446,7 @@ interface EmergencyCommentContent {
 | `face_blur` | bool | 얼굴 블러 처리 여부 |
 | `growth_pair_id` | UUID? | before/after 짝 참조 |
 | `like_count` | int | (남성 유저는 좋아요/저장만 가능) |
-| `feedback_comment_count` | int | (여성 친구 댓글) |
+| `feedback_comment_count` | int | (사이다 친구 댓글) |
 | `created_at` | timestamp | |
 
 ### `AppealFeedback` (어필 피드 댓글)
@@ -461,7 +461,7 @@ interface EmergencyCommentContent {
 | `is_helpful_by_author` | bool | 게시자가 도움됨 클릭 |
 | `created_at` | timestamp | |
 
-세부는 [[appeal-feed]] 참조.
+세부는  참조.
 
 ## 커뮤니티 엔티티
 
@@ -489,7 +489,7 @@ qna               — Q&A
 kakao_archive     — 카톡 할까말까 인기 아카이브
 report_showcase   — 첫인상 리포트 인증
 growth_log        — 오빠들의 성장일지
-nunas_notes       — {{NUNA}}들의 오답노트 (UI 라벨은 별칭 확정 후 재조정)
+nunas_notes       — {{NUNA}}들의 커뮤니티 (UI 라벨은 별칭 확정 후 재조정)
 real_interview    — 리얼 인터뷰
 weekly_star       — 이번 주 매력 남자
 grad_lounge       — 졸업생 라운지 (Grad+ 전용)
@@ -572,8 +572,8 @@ couple_lounge     — 부부 라운지 (기혼 전용)
 | 한글 | 코드 표준 | 대체 금지어 |
 |---|---|---|
 | 남성 유저 | `user` | ~~회원, 고객~~ |
-| 여성 친구 | `creator` | ~~여자, 알바, 상담원, 패널~~ (내부 코드는 통일) |
-| 여성 친구 유형 | `creator_type` | — |
+| 사이다 친구 | `creator` | ~~여자, 알바, 상담원, 패널~~ (내부 코드는 통일) |
+| 사이다 친구 유형 | `creator_type` | — |
 | 연습 파트너 | `practice_partner` | — |
 | 연애 코치 | `love_coach` | — |
 | 관계 상담사 | `relationship_advisor` | — |
@@ -587,14 +587,14 @@ couple_lounge     — 부부 라운지 (기혼 전용)
 | 애프터 신청 | `after_request` | ~~재신청, 재예약~~ |
 | 예약 | `booking` | ~~스케줄~~ (조율 채팅에서 확정된 시각+장소) |
 | 조율 채팅 | `coordination_chat` | ~~DM, 메시지~~ (사담 금지 · 회차별 1개 · 확정 시 read-only) |
-| 제공 티어 | `offers_*` | — (여사친이 제공 가능한 티어 매트릭스) |
+| 제공 티어 | `offers_*` | — (사이다 친구이 제공 가능한 티어 매트릭스) |
 | 통화 세션 | `call_session` | ~~미팅, 콜~~ (Meet 하위의 실행 단위) |
 | 리포트 | `report` | ~~후기, 평가~~ |
 | 지명 | `favorite_match` | — (스레드 2회차 이상이면 자동) |
 | 할까말까 | `emergency_room` | ~~상담실~~ |
 | 어필 피드 | `appeal_feed` | ~~자랑 피드~~ |
 | 여성 네트워크 | `female_network` | ~~하렘, 목록~~ |
-| 여사친 (개념) | `favorite_female_friend` | 도메인 개념. UI 라벨은 `{{NUNA}}` 별칭 확정 후 대체 (예: "내 도토리들") |
+| 사이다 친구 (개념) | `favorite_female_friend` | 도메인 개념. UI 라벨은 `{{NUNA}}` 별칭 확정 후 대체 (예: "내 도토리들") |
 | 배지 | `badge` | — |
 | 졸업 | `graduation` | ~~탈퇴, 만료~~ |
 | 친구 포인트 | `creator_points` | ~~적립금~~ |
@@ -614,7 +614,7 @@ couple_lounge     — 부부 라운지 (기혼 전용)
 - [[lifecycle]] — Stage 필드 상세
 - [[panel-persona]] — Creator 유형 규칙
 - [[emergency-rooms]] — EmergencyPost/Comment 상세
-- [[appeal-feed]] — AppealPost 상세
+-  — AppealPost 상세
 - [[creator-economy]] — Points/Payout 상세
 - [[growth-metrics]] — Metric 계산
 - [[community-rules]] — Board 상세

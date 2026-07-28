@@ -31,8 +31,6 @@ export function meetTierIcon(t: MeetTier): string {
   switch (t) {
     case "voice":
       return "📞";
-    case "video":
-      return "📹";
     case "offline":
       return "🤝";
   }

@@ -58,7 +58,7 @@ export function LiveIcon({ size = 28 }: IconProps) {
 }
 
 /**
- * 💬 오늘의 팩폭 — 인용 말풍선 (그린 톤)
+ * 💬 오늘의 피드백 — 인용 말풍선 (그린 톤)
  */
 export function CommentIcon({ size = 28 }: IconProps) {
   return (

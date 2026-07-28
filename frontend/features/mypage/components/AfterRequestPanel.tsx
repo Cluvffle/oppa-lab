@@ -14,7 +14,7 @@ interface AfterRequestPanelProps {
 
 /**
  * 다음 애프터 신청 CTA.
- * 여사친이 제공하지 않는 티어는 비활성. 잠금 상태면 전체 비활성 + 사유 노출.
+ * 사이다 친구이 제공하지 않는 티어는 비활성. 잠금 상태면 전체 비활성 + 사유 노출.
  * 실제 신청 API는 후속 세션 — 여기선 티어 선택 UX 만.
  */
 export function AfterRequestPanel({
@@ -27,7 +27,6 @@ export function AfterRequestPanel({
 
   const tiers: { key: MeetTier; enabled: boolean; hint?: string }[] = [
     { key: "voice", enabled: availability.offersVoice },
-    { key: "video", enabled: availability.offersVideo },
     {
       key: "offline",
       enabled: availability.offersOffline,

@@ -193,10 +193,10 @@ docs/features/{기능명}/
 
 - 컨셉 관련 → [[concept]], [[mission]]
 - 도메인 → [[domain-model]]
-- UI/스타일 → [[design-system]], [[brand-charming]]
+- UI/스타일 → [[design-system]], [[brand-cider]]
 - 친구 → [[panel-persona]], [[creator-economy]]
 - 지표 → [[growth-metrics]], [[lifecycle]]
-- 할까말까/피드 → [[emergency-rooms]], [[appeal-feed]]
+- 할까말까/피드 → [[emergency-rooms]], 
 - 커뮤니티 → [[community-rules]]
 
 스킬과 어긋난 결정이 있다면 문서에 명시.

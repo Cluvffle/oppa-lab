@@ -14,7 +14,7 @@ export default function PayoutPage() {
         subtitle="이번 달 얼마나 벌었는지."
         previewItems={[
           "이번 달 회차 급여",
-          "포인트 원장 (할까말까 답변 · 어필 피드백)",
+          "포인트 원장 (할까말까 답변)",
           "정산 예정 · 정산 완료 이력",
           "세금 · 신고 안내",
         ]}

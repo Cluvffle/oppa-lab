@@ -57,7 +57,7 @@ export function MobileDrawer({ open, onClose }: Props) {
       >
         <div className="mobile-drawer__head">
           <Link href="/" className="mobile-drawer__logo" onClick={onClose}>
-            챠밍<span className="mobile-drawer__logo-dot">.</span>
+            사이다<span className="mobile-drawer__logo-dot">.</span>
           </Link>
           <button
             type="button"
@@ -103,10 +103,22 @@ export function MobileDrawer({ open, onClose }: Props) {
                 </Link>
                 {tab.sub && (
                   <ul className="mobile-drawer__sublist">
-                    {tab.sub.map((s) => {
-                      const isSubActive =
-                        pathname === s.href ||
-                        (s.href !== tab.href && pathname.startsWith(s.href + "/"));
+                    {tab.sub.map((s, idx) => {
+                      const isPrefixOfOtherSub = tab.sub!.some(
+                        (x) => x.href !== s.href && x.href.startsWith(s.href + "/")
+                      );
+                      const matches = isPrefixOfOtherSub
+                        ? pathname === s.href
+                        : pathname === s.href || pathname.startsWith(s.href + "/");
+                      const anySubMatch = tab.sub!.some((x) => {
+                        const other = tab.sub!.some(
+                          (y) => y.href !== x.href && y.href.startsWith(x.href + "/")
+                        );
+                        return other
+                          ? pathname === x.href
+                          : pathname === x.href || pathname.startsWith(x.href + "/");
+                      });
+                      const isSubActive = matches || (!anySubMatch && idx === 0);
                       return (
                         <li key={s.href}>
                           <Link

@@ -8,7 +8,7 @@ export function OnlineCreatorsSection() {
   const track = [...onlines, ...onlines]; // 무한 마퀴용
 
   return (
-    <section className="section">
+    <section className="section section--no-top">
       <div className="container">
         <div className="section-header">
           <div>
@@ -20,7 +20,7 @@ export function OnlineCreatorsSection() {
               지금 이야기 나눌 수 있는 친구들
             </p>
           </div>
-          <Link href="/panels" className="section-link">
+          <Link href="/dating" className="section-link">
             전체 보기 →
           </Link>
         </div>

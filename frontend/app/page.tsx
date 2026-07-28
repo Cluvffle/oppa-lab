@@ -1,9 +1,8 @@
 import { Suspense } from "react";
 import { Header } from "@/shared/layout/Header";
-import { Footer } from "@/shared/layout/Footer";
 import { HeroSection } from "@/features/landing/components/HeroSection";
 import { OnlineCreatorsSection } from "@/features/landing/components/OnlineCreatorsSection";
-import { AppealFeedSection } from "@/features/landing/components/AppealFeedSection";
+import { WeeklyTrainingSection } from "@/features/landing/components/WeeklyTrainingSection";
 import { RealCommentsSection } from "@/features/landing/components/RealCommentsSection";
 import { CommunitySection } from "@/features/landing/components/CommunitySection";
 
@@ -18,11 +17,10 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <OnlineCreatorsSection />
-        <AppealFeedSection />
+        <WeeklyTrainingSection />
         <RealCommentsSection />
         <CommunitySection />
       </main>
-      <Footer />
     </>
   );
 }

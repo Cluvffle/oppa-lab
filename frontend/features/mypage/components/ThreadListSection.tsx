@@ -80,7 +80,7 @@ export function ThreadListSection({
       {filtered.length === 0 ? (
         <div className="thread-list__empty">
           {viewer === "user"
-            ? "아직 이 조건의 소개팅이 없어. 새 여사친이랑 시작해보자."
+            ? "아직 이 조건의 소개팅이 없어. 새 사이다 친구이랑 시작해보자."
             : "이 조건의 오빠 아직 없네."}
         </div>
       ) : (

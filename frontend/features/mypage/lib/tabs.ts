@@ -6,13 +6,17 @@
 export type MypageTabKey =
   | "threads"
   | "growth"
-  | "appeal"
   | "emergency"
   | "billing"
   | "todo"
   | "schedule"
   | "payout"
-  | "activity";
+  | "activity"
+  // ─── 오빠(user) 마이 신 서비스 그리드 ───
+  | "posts" // 작성한 글
+  | "liked" // 좋아요한 글
+  | "sweetpotato" // 고구마 관리 (충전/사용내역/가격표)
+  | "settings"; // 설정
 
 export interface TabDef {
   key: MypageTabKey;
@@ -20,11 +24,10 @@ export interface TabDef {
 }
 
 export const USER_TABS: TabDef[] = [
-  { key: "threads", label: "내 소개팅" },
-  { key: "growth", label: "성장 대시보드" },
-  { key: "appeal", label: "내 어필 피드" },
-  { key: "emergency", label: "내 할까말까" },
-  { key: "billing", label: "결제 · 구독" },
+  { key: "posts", label: "작성한 글" },
+  { key: "liked", label: "좋아요한 글" },
+  { key: "sweetpotato", label: "고구마 관리" },
+  { key: "settings", label: "설정" },
 ];
 
 export const CREATOR_TABS: TabDef[] = [

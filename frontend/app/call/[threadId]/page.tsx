@@ -27,10 +27,10 @@ export default function CallPage({ params }: Props) {
     );
   }
 
-  // mock: 오빠 뷰면 상대는 여성 친구, 여성 뷰면 상대는 오빠(익명).
+  // mock: 오빠 뷰면 상대는 사이다 친구, 여성 뷰면 상대는 오빠(익명).
   const peerLabel =
-    role === "creator" ? "익명 오빠" : summary.creator.nickname;
-  const selfLabel = role === "creator" ? summary.creator.nickname : "익명 오빠";
+    role === "creator" ? "고구마 오빠" : summary.creator.nickname;
+  const selfLabel = role === "creator" ? summary.creator.nickname : "고구마 오빠";
   const userId = role === "creator" ? summary.creator.id : CURRENT_USER_ID;
   const backHref = `/mypage/threads/${threadId}${role === "creator" ? "?role=creator" : ""}`;
 
