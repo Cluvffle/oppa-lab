@@ -6,6 +6,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import {
   hotPostsMock,
   type CommunityBoardKey,
+  type HotPostMock,
 } from "@/shared/lib/mock";
 import { CiderCommentIcon } from "@/shared/ui/CiderCommentIcon";
 import { SweetPotatoSymbol } from "@/shared/ui/ReactionIcons";
@@ -65,15 +66,22 @@ function resolveBoard(pathname: string, qs: string | null): Filter {
  * 통합 커뮤니티 보드. 상단 서브바(nav)가 필터 역할을 하므로 페이지 내부 필터는 없음.
  * URL 별로 h1/설명 다르게, 해당 게시판 글만 노출.
  */
-export function CommunityBoard() {
+interface CommunityBoardProps {
+  /** Cider Backend 에서 받아온 실제 게시글. 비어 있으면 mock 으로 떨어진다. */
+  apiPosts?: HotPostMock[];
+}
+
+export function CommunityBoard({ apiPosts }: CommunityBoardProps = {}) {
   const pathname = usePathname() ?? "/";
   const sp = useSearchParams();
   const filter = resolveBoard(pathname, sp?.get("board") ?? null);
   const meta = BOARD_META[filter];
 
   const posts = useMemo(() => {
-    if (filter === "all") return hotPostsMock;
-    return hotPostsMock.filter((p) => p.board === filter);
+    // 실제 API 결과가 있으면 그것만 쓴다. 아직 글이 없으면 mock 으로 화면을 채운다.
+    const source = apiPosts && apiPosts.length > 0 ? apiPosts : hotPostsMock;
+    if (filter === "all") return source;
+    return source.filter((p) => p.board === filter);
   }, [filter]);
 
   return (
