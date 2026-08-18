@@ -4,7 +4,6 @@ import { useMemo } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import {
-  hotPostsMock,
   type CommunityBoardKey,
   type HotPostMock,
 } from "@/shared/lib/mock";
@@ -78,8 +77,8 @@ export function CommunityBoard({ apiPosts }: CommunityBoardProps = {}) {
   const meta = BOARD_META[filter];
 
   const posts = useMemo(() => {
-    // 실제 API 결과가 있으면 그것만 쓴다. 아직 글이 없으면 mock 으로 화면을 채운다.
-    const source = apiPosts && apiPosts.length > 0 ? apiPosts : hotPostsMock;
+    // 백엔드가 유일한 데이터 출처. 비어 있으면 빈 상태를 그대로 보여준다.
+    const source = apiPosts ?? [];
     if (filter === "all") return source;
     return source.filter((p) => p.board === filter);
   }, [filter]);
